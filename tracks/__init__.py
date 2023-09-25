@@ -8,7 +8,7 @@ def create_app(test_config=None):
     app = Flask(__name__, instance_relative_config=True)
     app.config.from_mapping(
         SECRET_KEY='dev',
-        DATABASE=os.path.join(app.instance_path, 'flaskr.sqlite'),
+        DATABASE=os.path.join(app.instance_path, 'db.sqlite'),
     )
 
     if test_config is None:
@@ -24,9 +24,12 @@ def create_app(test_config=None):
     except OSError:
         pass
 
-    # a simple page that says hello
+    # genere enlace de ruta para mostrar mensaje.
     @app.route('/hola')
     def hello():
         return 'Hola, mundo!'
+    #importo desde el archivo db la base de datos.
+    from . import db
+    db.init_app(app)
 
     return app
