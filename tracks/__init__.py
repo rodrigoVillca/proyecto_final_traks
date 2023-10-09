@@ -29,7 +29,11 @@ def create_app(test_config=None):
     def hello():
         return 'Hola, mundo!'
     #importo desde el archivo db la base de datos.
-    from . import db
+    from . import db, genre, tracks, album, artists
     db.init_app(app)
+    app.register_blueprint(genre.bp)
+    app.register_blueprint(tracks.bp)
+    app.register_blueprint(album.bp)
+    app.register_blueprint(artists.bp)
 
     return app
