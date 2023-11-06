@@ -19,8 +19,10 @@ def index():
 def detalle(id):
     db = get_db()
     cancion = db.execute(
-        """SELECT t.Name AS nombre, t.milliseconds AS duracion FROM tracks t
+        """SELECT t.Name AS nombre, t.milliseconds AS duracion, t.Composer  FROM tracks t
         WHERE  t.trackId = ?""",
         (id,)
     ).fetchone()
+
+
     return render_template('track/detalle.html', cancion=cancion)

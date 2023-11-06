@@ -1,11 +1,12 @@
 {% extends 'base.html' %} {% block header %}
 <h2>{% block title %}Genres{% endblock %}</h2>
 {% endblock %} {% block content %}
+<h2>Canciones {{ genero["name"] }}</h2>
 <ul>
-  {% for g in generos: %}
+  {% for c in canciones_g: %}
   <li>
-    <a href="{{url_for('genre.detalle', id=g['genreid'])}}"
-      >{{ g['generos'] }}</a
+    <a href="{{url_for('track.detalle', id=c['trackId'])}}"
+      >{{ c['cancion'] }}</a
     >
   </li>
   {% endfor %}

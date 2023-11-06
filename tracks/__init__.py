@@ -2,8 +2,6 @@ import os
 
 from flask import Flask
 
-from . import artist
-
 def create_app(test_config=None):
     # create and configure the app
     app = Flask(__name__, instance_relative_config=True)
@@ -30,12 +28,12 @@ def create_app(test_config=None):
     def hello():
         return 'Hola, mundo!'
     #importo desde el archivo db la base de datos.
-    from . import db, genre, album, track
+    from . import db, genre, album, track, artists
     db.init_app(app)
     app.register_blueprint(genre.bp)
     app.register_blueprint(track.bp)
     app.register_blueprint(album.bp)
-    app.register_blueprint(artist.bp)
+    app.register_blueprint(artists.bp)
     app.add_url_rule("/", "track.index")
 
     return app
