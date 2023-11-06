@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{% block title %}{% endblock %} - Proyecto Final</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+  <nav>
+    <h1>Proyecto Final</h1>
+    <ul>
+      <li><a href="{{ url_for('album.index') }}">Albums</a></li>
+      <li><a href="{{ url_for('track.index') }}">Tracks</a></li>
+      <li><a href="{{url_for('genre.index')}}">Genres</a></li>
+      <li><a href="{{url_for('artist.index')}}">Artist</a></li>
+    </ul>
+  </nav>
+  <section class="content">
+    <header>{% block header %}{% endblock %}</header>
+    {% block content %}{% endblock %}
+  </section>
+</body>

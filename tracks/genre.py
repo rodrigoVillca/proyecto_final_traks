@@ -11,7 +11,7 @@ bp = Blueprint('genre', __name__, url_prefix="/genre")
 def index():
     db = get_db()
     generos = db.execute(
-        'SELECT name FROM genres'
+        'SELECT name as generos FROM genres'
     ).fetchall()
     return render_template('genre/index.html', generos=generos)
 

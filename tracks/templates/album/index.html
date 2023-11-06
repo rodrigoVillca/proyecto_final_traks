@@ -1,15 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h2>Albums</h2>
-    <ul>
-      {% for g in albums: %}
-      <li>{{ g['albums'] }}</li>
-      {% endfor %}
-</body>
-</html>
+{% extends 'base.html' %} {% block header %}
+<h2>{% block title %}Albums{% endblock %}</h2>
+{% endblock %} {% block content %}
+<ul>
+  {% for a in albums: %}
+  <li>{{ a['titulo'] }}</li>
+  {% endfor %}
+</ul>
+{% endblock %}

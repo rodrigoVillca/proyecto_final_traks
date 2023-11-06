@@ -1,0 +1,8 @@
+{% extends 'base.html' %} {% block header %}
+<h2>{% block title %}Tracks{% endblock %}</h2>
+{% endblock %} {% block content %}
+<ul>
+  <li>Titulo: {{ cancion['nombre'] }}</li>
+  <li>Duración: {{ cancion['duracion'] // 1000 }} seg.</li>
+</ul>
+{% endblock %}

@@ -11,7 +11,7 @@ bp = Blueprint('album', __name__, url_prefix="/album")
 def index():
     db = get_db()
     albums = db.execute(
-        'SELECT title as albums FROM albums'
+        'SELECT title as titulo FROM albums'
     ).fetchall()
     return render_template('album/index.html', albums=albums)
 
